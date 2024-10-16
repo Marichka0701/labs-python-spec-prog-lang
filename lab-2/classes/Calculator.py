@@ -1,12 +1,28 @@
 import math
 
-from classes.ConsoleReader import ConsoleReader
-from classes.ConsoleWriter import ConsoleWriter
-from functions.calculate import calculate
-from functions.perform_calculation import perform_calculation
-
 class Calculator:
     def __init__(self):
-        self.memory = 0
-        self.history = []
-        self.decimal_places = 2  # Default decimal places
+        self.__memory = 0 
+        self.__history = []
+        self.__decimal_places = 2 
+
+    def get_memory(self):
+        return self.__memory
+
+    def add_to_memory(self, value):
+        self.__memory += value
+
+    def get_history(self):
+        return self.__history
+
+    def add_to_history(self, operation):
+        self.__history.append(operation)
+
+    def set_decimal_places(self, places):
+        if places >= 0:
+            self.__decimal_places = places
+        else:
+            raise ValueError("Decimal places cannot be negative.")
+
+    def get_decimal_places(self):
+        return self.__decimal_places
