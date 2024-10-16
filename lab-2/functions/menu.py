@@ -1,8 +1,7 @@
-from functions.calculate import calculate
-from AppSettings import settings
+from classes.HistoryManager import HistoryManager
 from functions.memory_operations import memory_operations
 from functions.perform_calculation import perform_calculation
-from classes.HistoryManager import HistoryManager
+from AppSettings import settings
 
 def menu(user_input, memory, result, history, decimal_places, filename):
     history_manager = HistoryManager(filename)
@@ -15,7 +14,8 @@ def menu(user_input, memory, result, history, decimal_places, filename):
             memory, result = memory_operations(memory, result)
 
         case 'history':
-            action = input("Choose history operation: (view = view history, save = save history): ").lower()
+            print("Choose history operation: (view = view history, save = save history)")
+            action = input("Your choice: ").lower()
             if action == 'view':
                 history_manager.view_history()
             elif action == 'save':

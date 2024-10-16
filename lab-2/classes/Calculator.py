@@ -1,6 +1,7 @@
 import math
+from classes.AbstractCalculator import AbstractCalculator
 
-class Calculator:
+class Calculator(AbstractCalculator):
     def __init__(self):
         self.__memory = 0 
         self.__history = []
@@ -26,3 +27,13 @@ class Calculator:
 
     def get_decimal_places(self):
         return self.__decimal_places
+
+    def perform_calculation(self, operation):
+        try:
+            # Використання eval (з обережністю)
+            result = eval(operation)  
+            self.add_to_history(f"{operation} = {round(result, self.__decimal_places)}")
+            return round(result, self.__decimal_places)
+        except Exception as e:
+            print(f"Error: {e}")
+            return None
