@@ -25,4 +25,5 @@ class Division(Operation):
 
 class SquareRoot(Operation):
     def calc(self, num1, num2=None):
+        
         return math.sqrt(num1)

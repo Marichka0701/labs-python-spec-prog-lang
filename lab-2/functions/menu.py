@@ -7,18 +7,20 @@ def menu(calculator):
     while True:
         display_menu()  
         user_input = input("Enter the operation: ").strip().lower()
-        if user_input == 'exit':
-            break
-        elif user_input == 'memory':
-            calculator.memory_operations()
-        elif user_input == 'history':
-            calculator.show_history()
-        elif user_input == 'settings':
-            update_decimal_places() 
-        else:
-            try:
-                operation_result = calculate(calculator, user_input)
-                calculator.add_to_history(operation_result)
-                print(operation_result)
-            except Exception as e:
-                print(f"Error: {e}")
+        
+        match user_input:
+            case 'exit':
+                break
+            case 'memory':
+                calculator.memory_operations()
+            case 'history':
+                calculator.show_history()
+            case 'settings':
+                update_decimal_places()
+            case _:
+                try:
+                    operation_result = calculate(calculator, user_input)
+                    calculator.add_to_history(operation_result)
+                    print(operation_result)
+                except Exception as e:
+                    print(f"Error: {e}")
