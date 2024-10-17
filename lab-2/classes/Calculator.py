@@ -1,8 +1,8 @@
 import math
-from classes.AbstractCalculator import AbstractCalculator
 
-class Calculator(AbstractCalculator):
+class Calculator():
     def __init__(self):
+        
         self.__memory = 0 
         self.__history = []
         self.__decimal_places = 2 
@@ -30,7 +30,6 @@ class Calculator(AbstractCalculator):
 
     def perform_calculation(self, operation):
         try:
-            # Використання eval (з обережністю)
             result = eval(operation)  
             self.add_to_history(f"{operation} = {round(result, self.__decimal_places)}")
             return round(result, self.__decimal_places)
