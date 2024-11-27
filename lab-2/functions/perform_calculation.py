@@ -7,7 +7,6 @@ def perform_calculation(user_input, decimal_places, result, history):
             result = calculate(num1, '√', 0)
             result = round(result, decimal_places)
             print(f"Result: {format(result, f'.{decimal_places}f')}")
-            history.append(f"√{num1} = {format(result, f'.{decimal_places}f')}")
             return result, history
 
         parts = user_input.split()
@@ -18,7 +17,6 @@ def perform_calculation(user_input, decimal_places, result, history):
             result = calculate(num1, operator, num2)
             result = round(result, decimal_places)
             print(f"Result: {format(result, f'.{decimal_places}f')}")
-            history.append(f"{num1} {operator} {num2} = {format(result, f'.{decimal_places}f')}")
 
         return result, history
 

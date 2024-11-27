@@ -7,7 +7,7 @@ from functions.calculate import calculate
 from functions.display_menu import display_menu
 from AppSettings import get_decimal_places
 
-class Calculator:
+class Calculator():
     def __init__(self):
         self.__memory = Memory()
         self.__history_manager = HistoryManager("calculation_history.txt")
